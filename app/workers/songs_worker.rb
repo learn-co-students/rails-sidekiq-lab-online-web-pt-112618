@@ -4,7 +4,6 @@ class SongsWorker
 
   def perform(file_path)
     CSV.foreach(file_path, headers: true) do |song|
-      binding.pry
       Song.create(title: song[0], artist_name: song[1])
     end
   end
